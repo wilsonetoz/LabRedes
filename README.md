@@ -49,8 +49,8 @@ A arquitetura do laboratório simula uma instituição de ensino com cinco setor
 ### 1. Clone o repositório:
 
 ```bash
-git clone https://github.com/seuusuario/laboratorio-vlan-firewall-aws.git
-cd laboratorio-vlan-firewall-aws
+git clone https://github.com/wilsonetoz/LabRedes.git
+cd LabRedes
 ```
 ### 2. Configure suas variáveis de ambiente:
 
