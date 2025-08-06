@@ -1,65 +1,97 @@
-# LabRedes
-Este projeto busca demonstrar o uso prático de VLANs e firewalls em ambiente real de nuvem, quanto pelo valor educacional, ao oferecer um laboratório reprodutível para estudantes e profissionais que desejam aprender e aplicar boas práticas em segurança de redes.
+# 🧪 Laboratório Prático em Nuvem com VLANs e Firewall na AWS
 
-# Laboratório de Infraestrutura de Rede Segura na AWS com VLANs e Firewall
+Este projeto tem como objetivo fornecer um **laboratório reprodutível para fins educacionais**, simulando a segmentação lógica de uma rede institucional utilizando recursos da AWS, como VPCs, subnets, Security Groups, NACLs e automação com Terraform.
 
-## Descrição do Projeto
+---
 
-Este projeto tem como objetivo demonstrar a criação de uma infraestrutura de rede segura e segmentada na nuvem AWS, utilizando subnets como VLANs simuladas e firewalls (Security Groups e NACLs) para o controle de tráfego entre setores.
+## 📌 Objetivos
 
-O laboratório é reprodutível e serve como ferramenta educacional prática para estudantes e profissionais de redes e segurança da informação.
+- Demonstrar a aplicação de VLANs simuladas com subnets na AWS.
+- Aplicar regras de firewall com Security Groups e NACLs.
+- Automatizar a infraestrutura utilizando Terraform.
+- Proporcionar um ambiente de aprendizagem prática sobre segurança e segmentação de redes.
 
-## Arquitetura do Laboratório
+---
 
-A arquitetura do laboratório simula uma instituição de ensino com cinco setores:
+## 🧱 Infraestrutura Simulada
 
-| VLAN  | Setor           | Subnet              | Descrição                                  |
-|--------|----------------|---------------------|--------------------------------------------|
-| VLAN 1 | Administrativo | 172.31.10.0/24      | Direção, RH, Secretaria, Financeiro       |
-| VLAN 2 | Acadêmico 1    | 172.31.20.0/24      | Professores, Coordenação                   |
-| VLAN 3 | Acadêmico 2    | 172.31.30.0/24      | Alunos, Laboratórios, Pesquisadores       |
-| VLAN 4 | TI             | 172.31.40.0/24      | Servidores e Administração de Rede        |
-| VLAN 5 | Visitantes     | 172.31.50.0/24      | Rede Wi-Fi pública com acesso à Internet  |
+A arquitetura do laboratório representa a rede de uma instituição de ensino com cinco blocos (VLANs):
 
-## Recursos Criados
+- **VLAN 1 - Administrativo**
+- **VLAN 2 - Acadêmico 1**
+- **VLAN 3 - Acadêmico 2**
+- **VLAN 4 - Tecnologia da Informação (TI)**
+- **VLAN 5 - Visitantes**
 
-- **VPC Personalizada** (CIDR: 172.31.0.0/16)
-- **Subnets privadas e públicas (VLANs simuladas)**
-- **Internet Gateway e NAT Gateway**
-- **Tabelas de Roteamento**
-- **Instâncias EC2:**
-    - DNS Server
-    - Web Server
-    - Servidor de Arquivos
-    - Banco de Dados
-    - Bastion Host (Acesso SSH)
-- **Firewall:**
-    - Security Groups (Instância)
-    - Network ACLs (Subnet)
+Recursos implementados:
 
-## Requisitos
+- Subnets isoladas
+- Internet Gateway e NAT Gateway
+- Tabelas de rotas
+- Instâncias EC2 (DNS, Web, Arquivos, Banco de Dados, Bastion Host)
+- Regras de segurança com SGs e NACLs
 
-- Conta AWS (Free Tier ou superior)
-- Terraform instalado (versão recomendada: >=1.3)
-- Chave SSH para acesso via Bastion Host
-- Git instalado
+---
 
-## Como Reproduzir o Laboratório
+## ⚙️ Tecnologias Utilizadas
 
-### 1. Clone o repositório:
+- [Amazon Web Services (AWS)](https://aws.amazon.com/)
+- [Terraform](https://developer.hashicorp.com/terraform)
+- Linux (Ubuntu Server ou Amazon Linux 2)
+- Git e GitHub
+
+---
+
+## 🚀 Como Usar
+
+### Pré-requisitos
+
+- Conta ativa na AWS
+- Terraform instalado
+- Chave SSH gerada para acesso remoto às instâncias
+
+### Passos
+
+1. **Clone este repositório**:
 
 ```bash
 git clone https://github.com/wilsonetoz/LabRedes.git
 cd LabRedes
 ```
-### 2. Configure suas variáveis de ambiente:
 
-copie todo o conteudo do AWS CLI:
+3. **Executar Terraform**:
 
-<img width="283" height="180" alt="image" src="https://github.com/user-attachments/assets/71889cca-972b-44e6-9890-1b2a6e200ba7" />
-
-cole em .aws/credentials
-
- ```bash
-nano ~/.aws/credentials
+```bash
+terraform init
+terraform plan
+terraform apply
 ```
+Acessar o Bastion Host:
+
+Utilize a chave SSH para se conectar e realizar a configuração manual dos servidores internos.
+
+---
+📚 Documentação
+
+---
+🎓 Público-Alvo
+
+Este projeto foi desenvolvido para estudantes de redes, professores e profissionais que desejam aprender na prática os conceitos de:
+*Segmentação de redes*
+
+*Segurança em nuvem*
+
+*Automação de infraestrutura*
+
+---
+🤝 **Contribuições**
+
+Contribuições são bem-vindas!
+
+1- Abra uma issue
+
+2- Faça um fork do repositório
+
+3-Crie um branch para sua feature ou correção
+
+4- Envie um pull request
